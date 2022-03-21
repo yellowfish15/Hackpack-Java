@@ -106,8 +106,12 @@ public class TimeConversions {
 		
 		// EXAMPLE #3: Getting the amount of time between two dates
 		long diffInMillies = Math.abs(date2.getTime() - date.getTime());
-		long diffInDays = TimeUnit.DAYS.convert(diffInMillies, TimeUnit.MILLISECONDS);
+		long diffInSecs = TimeUnit.SECONDS.convert(diffInMillies, TimeUnit.MILLISECONDS);
+		long diffInMins = TimeUnit.MINUTES.convert(diffInMillies, TimeUnit.MILLISECONDS);
 		long diffInHours= TimeUnit.HOURS.convert(diffInMillies, TimeUnit.MILLISECONDS);
+		long diffInDays = TimeUnit.DAYS.convert(diffInMillies, TimeUnit.MILLISECONDS);
+		System.out.println("'" + date2 + "' and '" + date + "' are " + diffInSecs + " seconds apart!");
+		System.out.println("'" + date2 + "' and '" + date + "' are " + diffInMins + " minutes apart!");
 		System.out.println("'" + date2 + "' and '" + date + "' are " + diffInHours + " hours apart!");
 		System.out.println("'" + date2 + "' and '" + date + "' are " + diffInDays + " days apart!");
 		
