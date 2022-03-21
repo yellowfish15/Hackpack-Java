@@ -22,7 +22,7 @@ class UnionFindSize {
 
 		// initializes arrays
 		for (int k = 0; k < N; k++) {
-			size[k] = 0;
+			size[k] = 1;
 			ancestor[k] = k;
 		}
 	}
@@ -38,7 +38,7 @@ class UnionFindSize {
 	}
 
 	// merges two sets together
-	// returns true if union occured
+	// returns true if union occurred
 	public boolean union(int a, int b) {
 		int parA = find(a);
 		int parB = find(b);
