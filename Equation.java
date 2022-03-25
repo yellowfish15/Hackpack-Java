@@ -256,7 +256,7 @@ public class Equation {
 		System.out.println("Integral: " + eq.getIntegral() + " + C");
 		System.out.println();
 
-		Equation eq2 = new Equation("-1.0*5*x^5 +2.2*4*x^3+3.23x^4 + 4*3- 3.2x", 'x');
+		Equation eq2 = new Equation("1259759148122142124712947141294124912x", 'x');
 		System.out.println(eq2.terms);
 		System.out.println(eq2.operators);
 		System.out.println(eq2);
