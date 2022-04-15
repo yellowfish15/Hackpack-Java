@@ -83,7 +83,7 @@ public class SignificantDigits {
 }
 
 	public static void main(String[] args) {
-		System.out.println(numsigdigs("3.566000"));
+		System.out.println(numsigdigs("3.566000")); // get number of significant digits in this number
 		System.out.println(rounded(5.349, 2)); // print 5.349 to two significant digits
 	}
 

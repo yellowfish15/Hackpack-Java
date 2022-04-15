@@ -13,10 +13,17 @@ public class Timeline {
 	public static void main(String[] args) {
 		Scanner f = new Scanner(
 				"6\n[17:00, 22:30] [01:45, 03:33] [01:00, 02:50] [01:45, 03:00] [02:45, 03:01] [11:05, 11:09]");
+		
+		// convert string into array of events
 		Event[] events = inputFormat(f);
+		
+		// sort events by start time
 		Arrays.sort(events);
+		
+		// remove events that overlap
 		ArrayList<Event> sol = removeConflicts(events);
 
+		// print out remaining events
 		for (Event e : sol)
 			System.out.print(e + " ");
 		System.out.println();

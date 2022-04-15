@@ -1,5 +1,5 @@
 /*
- * Given a string, find the longest palindromic subsequence
+ * Given a string, find the Longest Palindromic Subsequence
  * in O(N^2) time
  * 
  */
