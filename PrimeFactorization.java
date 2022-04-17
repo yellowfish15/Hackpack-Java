@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 public class PrimeFactorization {
 
+	// return integer prime factors of n in an ArrayList
 	public static ArrayList<Integer> getFactors(int n) {
 		ArrayList<Integer> ret = new ArrayList<Integer>();
 		

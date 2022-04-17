@@ -3,10 +3,14 @@
  * 
  * Several binary search methods to use at your disposal!
  * 
+ * For reference to binary searching on big integers, see "Practice Contest 4-16-2022 (2016 State)"/p6.java
+ * 
  */
 
 public class BinSearch {
-
+	
+	
+	
 	// return first index of a value in an array or -1 if value is absent
 	public static int searchFirst(int val, int[] arr) {
 		int lo = 0, hi = arr.length - 1, m, f = -1;
