@@ -1,10 +1,11 @@
 /*
- * Equation Parser (supports variables):
+ * Equation Parser (supports single variable operations):
  * 
  * This implementation supports one variable calculus
  * This includes basic derivation and integration
  * 
  * Not supported: parenthesis, division, multiple variables, division
+ * For this functionality, see ExpressionParser.java
  * 
  */
 
@@ -12,12 +13,12 @@ import java.util.*;
 
 public class EquationParser {
 
-	static class Expression {
+	static class Equation {
 
 		ArrayList<Term> terms; // terms in order
 		char variable; // variable (typically 'x')
 
-		public Expression(String rawEquation, char variable) {
+		public Equation(String rawEquation, char variable) {
 			this.variable = variable;
 			terms = new ArrayList<Term>();
 
@@ -28,7 +29,7 @@ public class EquationParser {
 			parse(rawEquation);
 		}
 
-		public Expression(ArrayList<Term> terms) {
+		public Equation(ArrayList<Term> terms) {
 			this.terms = terms;
 		}
 		
@@ -57,7 +58,7 @@ public class EquationParser {
 		}
 
 		// return the equation that is the derivative of this equation
-		public Expression getDerivative() {
+		public Equation getDerivative() {
 			ArrayList<Term> newTerms = new ArrayList<Term>();
 			
 			for (Term t : terms) {
@@ -65,15 +66,15 @@ public class EquationParser {
 					continue;
 				newTerms.add(t.derive());
 			}
-			return new Expression(newTerms);
+			return new Equation(newTerms);
 		}
 
 		// return the equation that is the derivative of this equation
-		public Expression getIntegral() {
+		public Equation getIntegral() {
 			ArrayList<Term> newTerms = new ArrayList<Term>();
 			for (Term t : terms)
 				newTerms.add(t.integrate());
-			return new Expression(newTerms);
+			return new Equation(newTerms);
 		}
 
 		public String toString() {
@@ -211,7 +212,7 @@ public class EquationParser {
 	}
 
 	public static void main(String[] args) {
-		Expression eq = new Expression("1.0x^5 +2.2x^3+3.23x^4 + 4- 3.2x", 'x');
+		Equation eq = new Equation("1.0x^5 +2.2x^3+3.23x^4 + 4- 3.2x", 'x');
 		System.out.println(eq.terms);
 		System.out.println(eq);
 		System.out.println("Value when x=5.2: " + eq.evaluateAtValue(5.2));
@@ -220,7 +221,7 @@ public class EquationParser {
 		System.out.println("Integral: " + eq.getIntegral() + " + C");
 		System.out.println();
 
-		Expression eq2 = new Expression("1259759148122142127141294124912x", 'x');
+		Equation eq2 = new Equation("1259759148122142127141294124912x", 'x');
 		System.out.println(eq2.terms);
 		System.out.println(eq2);
 		System.out.println("Value when x=3.0: " + eq2.evaluateAtValue(3.));
@@ -229,7 +230,7 @@ public class EquationParser {
 		System.out.println("Integral: " + eq2.getIntegral() + " + C");
 		System.out.println();
 		
-		Expression eq3 = new Expression("x", 'x');
+		Equation eq3 = new Equation("x", 'x');
 		System.out.println(eq3.terms);
 		System.out.println(eq3);
 		System.out.println("Value when x=3.0: " + eq3.evaluateAtValue(3.));
@@ -238,7 +239,7 @@ public class EquationParser {
 		System.out.println("Integral: " + eq3.getIntegral() + " + C");
 		System.out.println();
 		
-		Expression eq4 = new Expression("X^4 + X^3 + X^2 + X", 'X');
+		Equation eq4 = new Equation("X^4 + X^3 + X^2 + X", 'X');
 		System.out.println(eq4.terms);
 		System.out.println(eq4);
 		System.out.println("Value when x=3.0: " + eq4.evaluateAtValue(3.));

@@ -11,7 +11,7 @@
 
 class Fraction {
 
-	int numerator, denominator;
+	long numerator, denominator;
 
 	// convert floating-point number to fraction
 	public Fraction(double d) {
@@ -19,7 +19,7 @@ class Fraction {
 
 	}
 
-	public Fraction(int numerator, int denominator) {
+	public Fraction(long numerator, long denominator) {
 		if (denominator < 0) {
 			numerator *= -1;
 			denominator = -denominator;
@@ -86,10 +86,10 @@ class Fraction {
 	}
 
 	// find greatest common divisor of a and b
-	public int GCD(int a, int b) {
+	public long GCD(long a, long b) {
 		while (b != 0) {
 			a %= b;
-			int temp = a;
+			long temp = a;
 			a = b;
 			b = temp;
 		}
@@ -98,7 +98,7 @@ class Fraction {
 
 	// simplify this fraction
 	public void simplify() {
-		int gcd = Math.abs(GCD(numerator, denominator));
+		long gcd = Math.abs(GCD(numerator, denominator));
 		numerator /= gcd;
 		denominator /= gcd;
 	}
@@ -111,8 +111,8 @@ class Fraction {
 
 	// return (this fraction) + (other fraction)
 	public Fraction add(Fraction oth) {
-		int newNum = numerator * oth.denominator + oth.numerator * denominator;
-		int newDen = denominator * oth.denominator;
+		long newNum = numerator * oth.denominator + oth.numerator * denominator;
+		long newDen = denominator * oth.denominator;
 		Fraction ret = new Fraction(newNum, newDen);
 		ret.simplify();
 		return ret;
@@ -120,8 +120,8 @@ class Fraction {
 
 	// return (this fraction) - (other fraction)
 	public Fraction subtract(Fraction oth) {
-		int newNum = numerator * oth.denominator - oth.numerator * denominator;
-		int newDen = denominator * oth.denominator;
+		long newNum = numerator * oth.denominator - oth.numerator * denominator;
+		long newDen = denominator * oth.denominator;
 		Fraction ret = new Fraction(newNum, newDen);
 		ret.simplify();
 		return ret;
@@ -129,8 +129,8 @@ class Fraction {
 
 	// return (this fraction) * (other fraction)
 	public Fraction multiply(Fraction oth) {
-		int newNum = numerator * oth.numerator;
-		int newDen = denominator * oth.denominator;
+		long newNum = numerator * oth.numerator;
+		long newDen = denominator * oth.denominator;
 		Fraction ret = new Fraction(newNum, newDen);
 		ret.simplify();
 		return ret;
@@ -158,8 +158,8 @@ class Fraction {
 			return numerator + "/" + denominator;
 
 		// return mixed number
-		int whole = numerator / denominator;
-		int reducedNum = Math.abs(numerator) % denominator;
+		long whole = numerator / denominator;
+		long reducedNum = Math.abs(numerator) % denominator;
 		return whole + " " + reducedNum + "/" + denominator;
 	}
 
