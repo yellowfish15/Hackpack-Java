@@ -103,6 +103,13 @@ public class MinimumEditDistance {
 		// get from "tuesday" to "thursday"
 		System.out.println(getEditDistance(str1, str2));
 		System.out.println(getEditDistanceBack(str1, str2));
+		
+		str1 = "a";
+		str2 = "a";
+		
+		// get from "a" to "a"
+		System.out.println(getEditDistance(str1, str2));
+		System.out.println(getEditDistanceBack(str1, str2));
 	}
 	
 }

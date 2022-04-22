@@ -14,7 +14,7 @@ public class IterativeBFS {
 	static ArrayList<Integer>[] adj;
 
 	// prints all not-yet visited vertices
-	// reachable from curr
+	// reachable from current node
 	public static void BFS(int curr, boolean[] visited) {
 		Deque<Integer> queue = new LinkedList<>();
 		queue.offer(curr);
